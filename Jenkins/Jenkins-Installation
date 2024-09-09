@@ -1,0 +1,21 @@
+# !/bin/bash
+yum install java-17-amazon-corretto.x86_64 -y
+cd /mnt
+mkdir servers build-tools
+cd servers
+wget https://dlcdn.apache.org/tomcat/tomcat-9/v9.0.93/bin/apache-tomcat-9.0.93.zip
+unzip apache-tomcat-9.0.93.zip
+rm -rf apache-tomcat-9.0.93.zip
+chmod -R 777 apache-tomcat-9.0.93
+cd apache-tomcat-9.0.93
+cd webapps
+wget https://get.jenkins.io/war-stable/2.462.2/jenkins.war
+cd ../
+cd bin
+./startup.sh
+yum install git -y
+cd /mnt
+cd build-tools
+wget https://dlcdn.apache.org/maven/maven-3/3.9.9/binaries/apache-maven-3.9.9-bin.zip
+unzip apache-maven-3.9.9-bin.zip
+rm -rf apache-maven-3.9.9-bin.zip
